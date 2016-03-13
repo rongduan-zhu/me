@@ -1,0 +1,22 @@
+version: "2"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    links:
+      - db
+    ports:
+      - "80:4000"
+    volumes:
+      - .:/app
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes_from:
+      - container:me_data
+  assets:
+    image: me_assets
+    volumes:
+      - .:/app

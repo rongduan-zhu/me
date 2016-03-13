@@ -1,0 +1,17 @@
+#!/bin/sh
+
+docker create \
+    --volume /var/lib/pgsql/data \
+    --name=me_data \
+    busybox
+
+./bin/rebuild
+
+docker-compose up -d db
+docker-compose stop
+
+docker-compose up -d db
+docker-compose run --rm web mix ecto.create
+
+docker-compose stop
+docker-compose rm -fv

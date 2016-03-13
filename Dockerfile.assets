@@ -1,0 +1,13 @@
+FROM node:5.8.0
+
+WORKDIR /app
+
+VOLUME node_modules
+
+COPY deps /app/deps
+COPY package.json /app
+
+RUN npm install
+RUN npm install -g brunch
+
+CMD npm run dev
