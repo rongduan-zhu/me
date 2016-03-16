@@ -2,15 +2,17 @@
   "repository": {
   },
   "scripts": {
-    "dev": "brunch watch"
+    "dev": "webpack --progress --colors --watch"
   },
   "dependencies": {
-    "babel-brunch": "~6.0.0",
-    "brunch": "~2.1.3",
-    "clean-css-brunch": "~1.8.0",
-    "css-brunch": "~1.7.0",
-    "javascript-brunch": "~1.8.0",
-    "uglify-js-brunch": "~1.7.0",
+    "webpack": "^1.12.0",
+    "typescript": "^1.8.0",
+    "ts-loader": "^0.8.1",
+    "babel-core": "^6.7.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-loader": "^6.2.0",
+    "css-loader": "^0.23.0",
+    "style-loader": "^0.13.0",
     "phoenix": "file:deps/phoenix",
     "phoenix_html": "file:deps/phoenix_html"
   }

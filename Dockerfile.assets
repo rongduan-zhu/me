@@ -1,13 +1,18 @@
 FROM node:5.8.0
 
-WORKDIR /app
+VOLUME /var/build/input
+VOLUME /var/build/output
 
-VOLUME node_modules
+WORKDIR /var/build
 
-COPY deps /app/deps
-COPY package.json /app
+COPY package.json /var/build
+
+COPY deps/phoenix /var/build/deps/phoenix
+COPY deps/phoenix_html /var/build/deps/phoenix_html
+
+COPY webpack.config.js /var/build
 
 RUN npm install
-RUN npm install -g brunch
+RUN npm install -g webpack
 
 CMD npm run dev

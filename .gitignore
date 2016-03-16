@@ -4,7 +4,15 @@
 /tmp
 /node_modules
 
+/priv/static/js/*
+!/priv/static/js/.keep
+/priv/static/css
+!/priv/static/css/.keep
+/priv/static/images
+!/priv/static/images/.keep
+
 /installer/_build
 /installer/tmp
 
 erl_crash.dump
+npm-debug.log

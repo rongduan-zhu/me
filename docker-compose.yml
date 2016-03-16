@@ -19,4 +19,6 @@ services:
   assets:
     image: me_assets
     volumes:
-      - .:/app
+      - ./web/static:/var/build/input
+      - ./priv/static:/var/build/output
+      - ./webpack.config.js:/var/build/webpack.config.js
