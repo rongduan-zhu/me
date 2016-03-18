@@ -22,4 +22,5 @@ services:
       - ./web/static:/var/build/input
       - ./priv/static:/var/build/output
       - ./webpack.config.js:/var/build/webpack.config.js
+      - ./.eslintrc.js:/var/build/.eslintrc.js
       - ./.stylelintrc:/var/build/.stylelintrc

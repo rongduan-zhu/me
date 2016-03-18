@@ -20,6 +20,7 @@ module.exports = {
   },
   module: {
     preLoaders: [
+      { test: /\.js$/, loader: 'eslint' },
       { test: /\.css$/, loader: 'stylelint' }
     ],
     loaders: [
@@ -40,6 +41,10 @@ module.exports = {
   plugins: [extractCss],
   postcss: function() {
     return [autoprefixer, precss];
+  },
+  eslint: {
+    emitError: true,
+    failOnError: true
   },
   stylelint: {
     configFile: path.join(__dirname, './.stylelintrc')
