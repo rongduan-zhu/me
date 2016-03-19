@@ -13,4 +13,6 @@ COPY mix.lock /app
 
 RUN mix deps.get && mix deps.compile
 
+VOLUME /app/deps
+
 CMD mix phoenix.server

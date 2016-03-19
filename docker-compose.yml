@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
+    container_name: app_web
     links:
       - db
     ports:
