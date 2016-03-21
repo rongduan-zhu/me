@@ -1,0 +1,9 @@
+@keyframes spin-y {
+  from {
+    transform: rotate3d(0, 1, 0, 0) translateY(50%);
+  }
+
+  to {
+    transform: rotate3d(0, 1, 0, 360deg) translateY(50%);
+  }
+}

@@ -2,8 +2,11 @@
 
 const path = require('path');
 
-const autoprefixer = require('autoprefixer')
-const precss = require('precss')
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
+const cssImport = require('postcss-import');
+
+const ngTemplatePath = path.resolve(__dirname, 'input', 'template');
 
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let extractCss = new ExtractTextPlugin('css/[name].css');
@@ -26,7 +29,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader?presets[]=es2015']
+        loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']
       },
       {
         test: /\.tsx?$/,
@@ -35,12 +38,23 @@ module.exports = {
       {
         test: /\.css$/,
         loader: extractCss.extract('style', 'css!postcss')
+      },
+      {
+        test: /\.html$/,
+        loaders: [
+          `ngtemplate`,
+          'html'
+        ]
       }
     ]
   },
   plugins: [extractCss],
-  postcss: function() {
-    return [autoprefixer, precss];
+  postcss: function(webpack) {
+    return [
+      cssImport({ addDependencyTo: webpack }),
+      precss(),
+      autoprefixer
+    ];
   },
   eslint: {
     emitError: true,
@@ -52,4 +66,4 @@ module.exports = {
   watchOptions: {
     poll: true
   }
-}
+};
