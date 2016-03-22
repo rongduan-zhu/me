@@ -36,4 +36,21 @@
   .ms {
     width: 16px;
   }
+
+  .resume-nav {
+    height: 64px;
+  }
+
+  .resume-nav-section {
+    &:hover {
+      cursor: pointer;
+    }
+
+    .md-button.nav-button {
+      border-radius: 0px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
 }

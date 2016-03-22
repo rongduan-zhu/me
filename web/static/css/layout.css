@@ -2,3 +2,7 @@
   margin-top: $size;
   margin-bottom: $size;
 }
+
+.stretch-horizontal {
+  width: 100%;
+}

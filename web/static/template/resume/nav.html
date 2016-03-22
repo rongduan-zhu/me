@@ -1,3 +1,5 @@
-<div ng-repeat="section in $ctrl.sections">
-  {{ section.displayName }}
-</div>
+<resume-nav-pane class="resume-nav-section"
+    ng-repeat="section in $ctrl.sections"
+    section="section"
+    flex layout="row" layout-align="start stretch">
+</resume-nav-pane>

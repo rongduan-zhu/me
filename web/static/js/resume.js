@@ -34,4 +34,15 @@ angular.module('app')
     };
   },
   templateUrl: require('../template/resume/nav.html')
+})
+.component('resumeNavPane', {
+  controller(InkRipple) {
+    this.changeTo = ev => {
+      InkRipple.attach(this, angular.element(ev.target));
+    };
+  },
+  bindings: {
+    section: '<'
+  },
+  templateUrl: require('../template/resume/pane.html')
 });
