@@ -1,6 +1,5 @@
 .resume {
-  display: block;
-  height: 100vh;
+  height: 100%;
 
   .hero {
     background-image: url(https://dl.dropboxusercontent.com/u/10742250/perth.jpg);

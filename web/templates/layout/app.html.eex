@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/style.css") %>">
   </head>
   <body ng-app="app">
-    <resume class="resume page" layout="column">
-      <div class="hero" flex="30" layout="row" layout-align="center end">
+    <resume class="resume" layout="column" layout-align="start stretch">
+      <div class="hero" flex="35" layout="row" layout-align="center end">
         <div class="avatar">
           <div class="avatar-inner">
           </div>
         </div>
       </div>
-      <resume-section class="intro" flex="70" id="1" display-name="Introduction"
+      <resume-section class="intro" flex="55" id="1" display-name="Introduction"
           layout="column" layout-align="start center">
         <div class="space-vertical md-display-1">Hello, World! I'm Rongduan (Kevin) Zhu or 朱荣端</div>
         <div class="space-vertical">Born in China, raised up in Australia, now in the United States.</div>
@@ -30,7 +30,7 @@
           <span>.</span>
         </div>
       </resume-section>
-      <resume-nav flex="70" layout="row">
+      <resume-nav flex layout="row">
       </resume-nav>
     </resume>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
