@@ -7,3 +7,27 @@
     transform: rotate3d(0, 1, 0, 360deg) translateY(50%);
   }
 }
+
+@keyframes zoom-in-enter {
+  from {
+    opacity: 0;
+    transform: perspective(500px) translate3d(0, 0, -200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-200px, 0, 0);
+  }
+}

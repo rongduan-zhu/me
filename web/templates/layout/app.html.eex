@@ -13,25 +13,6 @@
   </head>
   <body ng-app="app">
     <resume class="resume" layout="column" layout-align="start stretch">
-      <div class="hero" flex="35" layout="row" layout-align="center end">
-        <div class="avatar">
-          <div class="avatar-inner">
-          </div>
-        </div>
-      </div>
-      <resume-section class="intro" flex="grow" id="1" display-name="Introduction"
-          layout="column" layout-align="start center">
-        <div class="space-vertical md-display-1">Hello, World! I'm Rongduan (Kevin) Zhu or 朱荣端</div>
-        <div class="space-vertical">Born in China, raised up in Australia, now in the United States.</div>
-        <div class="space-vertical">Passionate about software engineering, especially the modern web.</div>
-        <div class="space-vertical">
-          <span>Currently a Software Engineer at</span>
-          <img class="ms" src="https://upload.wikimedia.org/wikipedia/commons/9/94/M_box.svg" alt="Microsoft">
-          <span>.</span>
-        </div>
-      </resume-section>
-      <resume-nav class="resume-nav" layout="row">
-      </resume-nav>
     </resume>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-animate.min.js"></script>

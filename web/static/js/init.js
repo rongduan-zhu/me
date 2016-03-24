@@ -1,4 +1,4 @@
-angular.module('app', ['ngMaterial', 'scroll-trigger'])
+angular.module('app', ['ngAnimate', 'ngMaterial', 'scroll-trigger'])
 .factory('InkRipple', function($mdInkRipple) {
   return {
     attach(scope, element, options) {
