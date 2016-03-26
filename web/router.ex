@@ -17,6 +17,7 @@ defmodule Me.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/resume*_rest", PageController, :index
 
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show

@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-animate.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-aria.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-messages.min.js"></script>
+    <script src="//npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdn.rawgit.com/princemaple/scroll-trigger/v0.5.4/dist/scroll-trigger.min.js"></script>
