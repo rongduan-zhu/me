@@ -6,7 +6,10 @@
   .hero {
     background-image: url(https://dl.dropboxusercontent.com/u/10742250/perth.jpg);
     background-size: cover;
+    border-bottom: 8px solid #fff;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.35);
     width: 100%;
+    z-index: 1;
   }
 
   .avatar,
@@ -33,14 +36,11 @@
 
   .intro {
     animation: $animation-time ease-in-out;
-    border-top: 8px solid #fff;
-    box-shadow: inset 0px 2px 2px 0px rgba(0, 0, 0, 0.35);
     padding-top: 100px;
     transition: box-shadow $animation-time;
 
     &.enter {
       animation-name: zoom-in-enter;
-      box-shadow: none;
     }
 
     &.ng-leave {
