@@ -1,3 +1,5 @@
+const timelineUrl = require('../template/widgets/timeline.html');
+
 angular.module('app')
 .directive('delayedEnter', function($animate, $timeout) {
   return {
@@ -19,6 +21,19 @@ angular.module('app')
         () => $animate.removeClass(elem, 'enter'),
         animationLength
       ));
+    }
+  };
+})
+.directive('timeline', function() {
+  return {
+    restrict: 'E',
+    scope: {},
+    templateUrl: timelineUrl,
+    link(scope, elem, attrs) {
+      scope.from = attrs.from;
+      scope.to = attrs.to || 'Present';
+
+      if (!scope.from) { throw 'No from date given.'; }
     }
   };
 });

@@ -45,6 +45,8 @@ angular.module('app')
       };
 
       ResumeSections.registerSection(this.section);
+
+      $element.addClass('resume-section-pane');
     };
   },
   transclude: true,
