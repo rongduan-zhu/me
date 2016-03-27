@@ -20,7 +20,7 @@
   .avatar {
     animation: $animation-time ease-in-out spin-y;
     border: 8px solid #fff;
-    box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.35);
     transform: translateY(50%);
     z-index: 2;
     height: 200px;
@@ -29,7 +29,7 @@
 
   .avatar-inner {
     background: url(https://s.gravatar.com/avatar/c4f9254ba3d4c0aeff4e5877a059c7d4?s=184);
-    box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.35);
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.35);
     height: 184px;
     width: 184px;
   }

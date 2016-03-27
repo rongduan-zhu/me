@@ -1,11 +1,15 @@
-angular.module('app', ['ngAnimate', 'ngComponentRouter', 'ngMaterial', 'scroll-trigger'])
-.factory('InkRipple', function($mdInkRipple) {
-  return {
-    attach(scope, element, options) {
-      return $mdInkRipple.attach(scope, element, angular.extend({
-        center: false,
-        dimBackground: true
-      }, options));
-    }
-  };
+angular.module('app', [
+  'ngAnimate', 'ngComponentRouter', 'ngMaterial',
+  'resume', 'scroll-trigger'
+])
+.config(function($locationProvider) {
+  $locationProvider.html5Mode(true);
+})
+.value('$routerRootComponent', 'main')
+.component('main', {
+  $routeConfig: [
+    { path: '/', name: 'Home', component: 'resume', useAsDefault: true },
+    { path: '/resume/:section', name: 'Home', component: 'resume' }
+  ],
+  templateUrl: require('../template/main.html')
 });
