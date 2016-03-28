@@ -1,10 +1,13 @@
 #!/bin/sh
-docker-compose build --force-rm
 
-docker-compose up -d web
+source ./bin/setup
+
+dc build --force-rm
+
+dc up -d web
 docker cp app_web:/app/deps/phoenix ./deps
 docker cp app_web:/app/deps/phoenix_html ./deps
-docker-compose stop
+dc stop
 
 docker build \
     -f Dockerfile.assets \

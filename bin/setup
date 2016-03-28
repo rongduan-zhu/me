@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$BUILD_ENV" == "prod" ]; then
+    alias dc="docker-compose -f docker-compose.yml -f docker-compose.prod.yml"
+else
+    alias dc="docker-compose"
+fi

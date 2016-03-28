@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source ./bin/setup
+
 docker create \
     --volume /var/lib/pgsql/data \
     --name=me_data \
@@ -7,11 +9,12 @@ docker create \
 
 ./bin/rebuild
 
-docker-compose up -d db
-docker-compose stop
+dc up -d db
+dc stop
 
-docker-compose up -d db
-docker-compose run --rm web mix ecto.create
+dc up -d
+dc run --rm web mix ecto.create
+dc run --rm web mix phoenix.digest
 
-docker-compose stop
-docker-compose rm -fv
+dc stop
+dc rm -fv

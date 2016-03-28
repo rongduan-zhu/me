@@ -11,6 +11,11 @@
 /priv/static/images
 !/priv/static/images/.keep
 
+/priv/static/favicon*
+/priv/static/manifest.json
+/priv/static/robots.txt.gz
+/priv/static/robots-*
+
 /installer/_build
 /installer/tmp
 

@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
+      args:
+        mix_env: dev
     container_name: app_web
     links:
       - db

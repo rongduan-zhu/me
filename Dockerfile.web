@@ -6,12 +6,18 @@ RUN apk update
 RUN apk add build-base elixir erlang-crypto erlang-parsetools erlang-syntax-tools \
     inotify-tools postgresql-client
 
+ARG mix_env=prod
+
+ENV MIX_ENV=$mix_env
+
 RUN mix local.hex --force && mix local.rebar
 
 COPY mix.exs /app
 COPY mix.lock /app
 
 RUN mix deps.get && mix deps.compile
+
+RUN mix compile
 
 VOLUME /app/deps
 

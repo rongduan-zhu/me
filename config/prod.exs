@@ -13,8 +13,16 @@ use Mix.Config
 # which you typically run after static files are built.
 config :me, Me.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "rongduan-zhu.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
+
+config :me, Me.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  database: "me_prod",
+  hostname: System.get_env("DB_HOST"),
+  pool_size: 10
 
 # Do not print debug messages in production
 config :logger, level: :info
