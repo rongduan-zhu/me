@@ -4,6 +4,8 @@
 /tmp
 /node_modules
 
+!.keep
+
 /priv/static/js
 !/priv/static/js/.keep
 /priv/static/css

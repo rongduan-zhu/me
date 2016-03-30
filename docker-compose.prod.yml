@@ -11,6 +11,7 @@ services:
       DB_HOST: "db"
       DB_USERNAME: $DB_USERNAME
       DB_PASSWORD: $DB_PASSWORD
+    restart: always
   assets:
     environment:
       NODE_ENV: production
@@ -18,3 +19,4 @@ services:
     environment:
       POSTGRES_USER: $DB_USERNAME
       POSTGRES_PASSWORD: $DB_PASSWORD
+    restart: always
