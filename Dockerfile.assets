@@ -11,6 +11,9 @@ COPY deps/phoenix /var/build/deps/phoenix
 COPY deps/phoenix_html /var/build/deps/phoenix_html
 
 COPY webpack.config.js /var/build
+COPY tsconfig.json  /var/build
+COPY typings.json  /var/build
+COPY tslint.json /var/build
 COPY .eslintrc.js /var/build
 COPY .stylelintrc /var/build
 

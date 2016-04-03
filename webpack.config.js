@@ -6,8 +6,6 @@ const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 const cssImport = require('postcss-import');
 
-const ngTemplatePath = path.resolve(__dirname, 'input', 'template');
-
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let extractCss = new ExtractTextPlugin('css/[name].css');
 
@@ -15,6 +13,7 @@ module.exports = {
   context: path.resolve(__dirname, 'input'),
   entry: {
     app: './js/app.js',
+    ng2App: './ts/main.ts',
     style: './css/app.css'
   },
   output: {
@@ -24,6 +23,7 @@ module.exports = {
   module: {
     preLoaders: [
       { test: /\.js$/, loader: 'eslint' },
+      { test: /\.tsx?$/, loader: 'tslint' },
       { test: /\.css$/, loader: 'stylelint' }
     ],
     loaders: [
@@ -42,13 +42,16 @@ module.exports = {
       {
         test: /\.html$/,
         loaders: [
-          `ngtemplate`,
+          'ngtemplate',
           'html'
         ]
       }
     ]
   },
   plugins: [extractCss],
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.html']
+  },
   postcss: function(webpack) {
     return [
       cssImport({ addDependencyTo: webpack }),
@@ -59,6 +62,10 @@ module.exports = {
   eslint: {
     emitError: true,
     failOnError: true
+  },
+  tslink: {
+    emitErrors: true,
+    failOnHint: true
   },
   stylelint: {
     configFile: path.join(__dirname, './.stylelintrc')

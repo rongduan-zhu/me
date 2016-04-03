@@ -83,7 +83,7 @@ angular.module('resume', [])
   }
 })
 .component('resumeSection', {
-  templateUrl: require('../../template/resume/section.html')
+  templateUrl: require('../../template/resume/section')
 })
 .component('resumeSectionPane', {
   controller($attrs, $element, ResumeSections) {
@@ -105,7 +105,7 @@ angular.module('resume', [])
     };
   },
   transclude: true,
-  templateUrl: require('../../template/resume/section_pane.html')
+  templateUrl: require('../../template/resume/section_pane')
 })
 .directive('last', function(ResumeSections) {
   return {
@@ -119,7 +119,7 @@ angular.module('resume', [])
   controller(ResumeSections) {
     this.sections = ResumeSections.sections;
   },
-  templateUrl: require('../../template/resume/nav.html')
+  templateUrl: require('../../template/resume/nav')
 })
 .component('resumeNavPane', {
   controller($location, ResumeSections) {
@@ -131,5 +131,5 @@ angular.module('resume', [])
   bindings: {
     section: '<'
   },
-  templateUrl: require('../../template/resume/nav_pane.html')
+  templateUrl: require('../../template/resume/nav_pane')
 });

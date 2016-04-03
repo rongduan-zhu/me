@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/style.css") %>">
   </head>
-  <body ng-app="app">
+  <body>
+    <ng2-app></ng2-app>
     <main class="main">
     </main>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
@@ -23,6 +24,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdn.rawgit.com/princemaple/scroll-trigger/v0.5.4/dist/scroll-trigger.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.13/angular2-polyfills.min.js"></script>
+    <srcipt src="//npmcdn.com/rxjs@5.0.0-beta.2/bundles/Rx.min.js"></srcipt>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/ng2App.js") %>"></script>
   </body>
 </html>

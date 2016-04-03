@@ -1,7 +1,7 @@
-require('./socket.js');
-require('./init.js');
-require('./widgets.js');
+require('./socket');
+require('./init');
+require('./widgets');
 
-require('./resume/resume.js');
+require('./resume/resume');
 
 import "phoenix_html";
