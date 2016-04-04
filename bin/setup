@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function dc() {
-    if [ -n ${BUILD_PROD+prod} ]; then
+    if [ $BUILD_PROD ]; then
         docker-compose -f docker-compose.yml -f docker-compose.prod.yml $@
     else
         docker-compose $@
