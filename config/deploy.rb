@@ -29,7 +29,7 @@ namespace :deploy do
       within('/var/me') do
         execute_sudo :git, :pull
         execute_sudo './bin/bootstrap'
-        execute_sudo *dc, :up, '-d'
+        execute_sudo *dc, :up, '-d --force-recreate'
       end
     end
   end
@@ -38,7 +38,7 @@ namespace :deploy do
   task :up do
     on roles(:app) do
       within('/var/me') do
-        execute_sudo *dc, :up, '-d'
+        execute_sudo *dc, :up, '-d --force-recreate'
       end
     end
   end
