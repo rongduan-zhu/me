@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function dc() {
+dc() {
     if [ $BUILD_PROD ]; then
         docker-compose -f docker-compose.yml -f docker-compose.prod.yml $@
     else

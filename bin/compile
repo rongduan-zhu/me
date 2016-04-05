@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source ./bin/setup
+
+dc run --rm web mix compile
