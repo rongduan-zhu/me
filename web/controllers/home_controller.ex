@@ -1,4 +1,4 @@
-defmodule Me.PageController do
+defmodule Me.HomeController do
   use Me.Web, :controller
 
   def index(conn, _params) do

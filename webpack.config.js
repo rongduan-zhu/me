@@ -13,6 +13,7 @@ module.exports = {
   context: path.resolve(__dirname, 'input'),
   entry: {
     app: './js/app.js',
+    init: './ts/init.ts',
     ng2App: './ts/main.ts',
     style: './css/app.css'
   },
