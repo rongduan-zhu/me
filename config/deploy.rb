@@ -18,6 +18,7 @@ namespace :deploy do
     on roles(:app) do
       within('/var/me') do
         execute_sudo :git, :pull
+        execute_sudo './bin/compile'
         execute_sudo *dc, :restart
       end
     end
