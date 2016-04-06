@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loaders: ['ts-loader']
+        loaders: ['awesome-typescript-loader']
       },
       {
         test: /\.css$/,
@@ -51,7 +51,7 @@ module.exports = {
   },
   plugins: [extractCss],
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.html']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.ng2.html','.html']
   },
   postcss: function(webpack) {
     return [

@@ -18,6 +18,7 @@ COPY .eslintrc.js /var/build
 COPY .stylelintrc /var/build
 
 RUN npm install
+RUN npm run postinstall
 RUN npm install -g webpack
 
 CMD npm run dev
