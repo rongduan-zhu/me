@@ -3,3 +3,4 @@
 source ./bin/setup
 
 dc run --rm web mix compile
+dc run --rm web mix phoenix.digest
