@@ -55,7 +55,7 @@
       "singleline": "never",
       "multiline": "never"
     }],
-    "triple-equals": [true, "allow-null-check"],
+    "triple-equals": [false, "allow-null-check"],
     "typedef-whitespace": [true, {
       "call-signature": "nospace",
       "index-signature": "nospace",

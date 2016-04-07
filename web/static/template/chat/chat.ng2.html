@@ -1,0 +1,7 @@
+<div class="messages">
+  <div *ngFor="#message of messages">
+    {{message}}
+  </div>
+</div>
+<textarea [(ngModel)]="newMessage" (keypress)="keyEventHandler($event)"></textarea>
+<button (click)="sendMessage()">Send</button>
