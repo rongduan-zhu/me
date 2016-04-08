@@ -1,6 +1,6 @@
 <div class="messages">
-  <div *ngFor="#message of messages">
-    {{message}}
+  <div *ngFor="#message of dataStore.messages">
+    [{{message.date | date:'medium'}}]: {{message.body}}
   </div>
 </div>
 <textarea [(ngModel)]="newMessage" (keypress)="keyEventHandler($event)"></textarea>
