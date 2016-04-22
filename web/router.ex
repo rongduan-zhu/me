@@ -11,6 +11,8 @@ defmodule Me.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.LoadResource
   end
 
   scope "/", Me do
@@ -19,11 +21,12 @@ defmodule Me.Router do
     get "/", HomeController, :index
     get "/resume*rest", HomeController, :index
 
-    get "/chat", ChatController, :index
+    get "/chat*rest", ChatController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Me do
-  #   pipe_through :api
-  # end
+  scope "/api", Me do
+    pipe_through :api
+
+    resources "/users", UserController, only: [:create]
+  end
 end

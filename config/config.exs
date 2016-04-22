@@ -14,6 +14,16 @@ config :me, Me.Endpoint,
   pubsub: [name: Me.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures Guardian
+config :guardian, Guardian,
+  allowed_algos: ["HS512"],
+  verify_module: Guardian.JWT,
+  issuer: "MeDev",
+  ttl: {30, :days},
+  verify_issuer: true,
+  secret_key: "abcde123456",
+  serializer: Me.GuardianSerializer
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -22,6 +32,7 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+import_config "oauth/#{Mix.env}.exs"
 
 # Configure phoenix generators
 config :phoenix, :generators,

@@ -18,6 +18,9 @@
 /priv/static/robots.txt.gz
 /priv/static/robots-*
 
+/config/oauth
+!/config/oauth/.keep
+
 /installer/_build
 /installer/tmp
 

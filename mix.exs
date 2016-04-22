@@ -19,7 +19,7 @@ defmodule Me.Mixfile do
   def application do
     [mod: {Me, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :oauth2, :httpoison, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +36,11 @@ defmodule Me.Mixfile do
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:guardian, "~> 0.10.1"},
+     {:oauth2, "~> 0.5"},
+     {:httpoison, "~> 0.8.0"},
+     {:comeonin, "~> 2.4"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
