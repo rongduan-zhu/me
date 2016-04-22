@@ -4,6 +4,10 @@ source ./bin/setup
 
 dc build --force-rm
 
+docker run -d --name app_web_temp me_web
+docker cp app_web_temp:/app/mix.lock ./mix.lock
+docker rm -f app_web_temp
+
 dc up -d web
 docker cp app_web:/app/deps/phoenix ./deps
 docker cp app_web:/app/deps/phoenix_html ./deps

@@ -2,9 +2,10 @@ FROM gliderlabs/alpine:3.3
 
 WORKDIR /app
 
-RUN apk update
-RUN apk add build-base elixir erlang-crypto erlang-parsetools erlang-syntax-tools \
-    inotify-tools postgresql-client
+RUN echo "@edge http://dl-4.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories
+RUN apk --update --no-cache add build-base elixir@edge erlang-crypto \
+    erlang-parsetools erlang-syntax-tools erlang-dev inotify-tools \
+    postgresql-client
 
 ARG mix_env=prod
 
@@ -14,6 +15,10 @@ RUN mix local.hex --force && mix local.rebar
 
 COPY mix.exs /app
 COPY mix.lock /app
+
+COPY config /app/config
+COPY lib /app/lib
+COPY web /app/web
 
 RUN mix deps.get && mix deps.compile
 
