@@ -5,7 +5,7 @@ defmodule Me.UserController do
 
   def create(conn, %{"token" => token, "provider" => provider} = data) do
     case verify_and_login(provider, token, data) do
-      {:ok, user} -> send_resp(conn, 200, user.email)
+      {:ok, jwt, _} -> json(conn, %{:jwt => jwt})
       {:error, _} -> send_resp(conn, 400, "Unable to register/login")
     end
   end

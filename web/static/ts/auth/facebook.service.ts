@@ -35,10 +35,7 @@ export class FacebookService {
   }
 
   public login() {
-    console.log('facebook#login');
-    console.log(this.window.FB);
     this.window.FB.getLoginStatus(response => {
-      console.log('well, this didnt happen');
       this.handleLoginResponse(response);
     });
   }

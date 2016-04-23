@@ -1,33 +1,28 @@
 import {Injectable} from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+
+import {HttpService} from '../http.service';
+import {StorageService} from '../storage.service';
 
 @Injectable()
 export class OAuthService {
   private usersPath = '/api/users';
 
-  private static appendContentType(header: Headers) {
-    header.append('Content-Type', 'application/json');
-  }
-
-  public constructor(private http: Http) { }
+  public constructor(private http: HttpService, private storage: StorageService) { }
 
   public loginOrSignup(data: any): Observable<string> {
-    let headers = new Headers();
-
-    OAuthService.appendContentType(headers);
-
     data.token = true;
 
-    return this.http.post(this.usersPath, JSON.stringify(data), { headers: headers })
-      .map(this.processJwt)
+    return this.http.post(this.usersPath, JSON.stringify(data))
+      .map(response => this.processJwt(response))
       .catch(this.handleError);
   }
 
   private processJwt(response: any) {
-    console.log(response);
+    let payload = JSON.parse(response._body);
+    this.storage.put('jwt', payload.jwt);
     return response;
   }
 

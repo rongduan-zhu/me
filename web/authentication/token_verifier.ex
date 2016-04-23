@@ -28,8 +28,9 @@ defmodule Me.TokenVerifier do
         }
       )
       |> Repo.insert
+      |> Guardian.encode_and_sign(:api)
     else
-      {:ok, user}
+      user |> Guardian.encode_and_sign(:api)
     end
   end
 end
