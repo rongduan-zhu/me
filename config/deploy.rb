@@ -43,4 +43,19 @@ namespace :deploy do
       end
     end
   end
+
+  desc 'Setup clean server'
+  task :server do
+    on roles(:app) do
+      within('/var/me') do
+        execute_sudo './bin/server_setup'
+      end
+    end
+  end
+end
+
+namespace :db do
+  desc 'Create DB'
+  task :code do
+  end
 end

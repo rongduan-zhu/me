@@ -1,20 +1,31 @@
 # Me
 
-To start your Phoenix app:
+## Purpose of app
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+I made this to learn and play with new web technologies.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Setting up Production Server
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+### Environment variables to define
 
-## Learn more
+* ```PHOENIX_SECRET```
+* ```TLS_KEY_PATH```
+* ```TLS_CERT_PATH```
+* ```DB_USERNAME```
+* ```DB_PASSWORD```
+* ```BUILD_PROD```
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+* ```FB_APP_ID```
+* ```FB_SECRET```
+
+### OAuth Setup
+You will need to create a oauth config file ```config/oauth/prod.exs```
+
+With the following content
+```elixir
+use Mix.Config
+
+config :me,
+  facebook_app_id: System.get_env("FB_APP_ID"),
+  facebook_secret: System.get_env("FB_SECRET")
+```

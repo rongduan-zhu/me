@@ -10,6 +10,11 @@ RUN apk --update --no-cache add build-base elixir@edge erlang-crypto \
 ARG mix_env=prod
 
 ENV MIX_ENV=$mix_env
+ENV PHOENIX_SECRET=$phoenix_secret
+ENV TLS_KEY_PATH=$tls_key_path
+ENV TLS_CERT_PATH=$tls_cert_path
+ENV FB_APP_ID=$fb_app_id
+ENV FB_SECRET=$fb_secret
 
 RUN mix local.hex --force && mix local.rebar
 
