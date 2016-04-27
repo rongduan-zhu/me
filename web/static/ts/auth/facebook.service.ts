@@ -1,6 +1,6 @@
 import {Injectable} from 'angular2/core';
 
-import {OAuthService} from './auth.service';
+import {AuthService} from './auth.service';
 
 interface Window {
   fbAsyncInit?: any;
@@ -20,7 +20,7 @@ export class FacebookService {
 
   public user: OAuthUser;
 
-  public constructor(private authService: OAuthService, private window: Window) {
+  public constructor(private authService: AuthService, private window: Window) {
     window.fbAsyncInit = () => {
       window.FB.init({
         appId: '1021824831234075',
@@ -32,6 +32,8 @@ export class FacebookService {
     };
 
     this.user = {provider: 'facebook'};
+
+    this.loadFbAsync();
   }
 
   public login() {
@@ -58,5 +60,22 @@ export class FacebookService {
       default:
         console.error(response);
     }
+  }
+
+  private loadFbAsync() {
+    let js;
+    let id = 'facebook-jssdk';
+    let ref = document.getElementsByTagName('script')[0];
+
+    if (document.getElementById(id)) {
+      return;
+    }
+
+    js = document.createElement('script');
+    js.id = id;
+    js.async = true;
+    js.src = '//connect.facebook.net/en_US/sdk.js';
+
+    ref.parentNode.insertBefore(js, ref);
   }
 }

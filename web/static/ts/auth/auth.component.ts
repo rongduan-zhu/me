@@ -1,14 +1,12 @@
 import {Component} from 'angular2/core';
-import {HTTP_PROVIDERS}    from 'angular2/http';
 
 import {FacebookService} from './facebook.service';
-import {OAuthService} from './auth.service';
-import {HttpService} from '../http.service';
-import {StorageService} from '../storage.service';
+import {AuthService} from './auth.service';
+import {HTTP_SERVICE_PROVIDERS} from '../http.service.providers';
 
 @Component({
   selector: 'login',
-  providers: [FacebookService, HTTP_PROVIDERS, HttpService, OAuthService, StorageService],
+  providers: [FacebookService, HTTP_SERVICE_PROVIDERS, AuthService],
   template: require('!!raw!../../template/auth/login.ng2.html')
 })
 export class AuthComponent {

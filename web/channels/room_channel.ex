@@ -1,9 +1,16 @@
 defmodule Me.RoomChannel do
   use Phoenix.Channel
 
-  def join("rooms:lobby", _message, socket) do
-    send(self, :after_join)
-    {:ok, socket}
+  import Guardian.Phoenix.Socket
+
+  def join("rooms:lobby", %{"jwt" => jwt}, socket) do
+    case sign_in(socket, jwt) do
+      {:ok, authed_socket, _guardian_params} ->
+        send(self, :after_join)
+        {:ok, authed_socket}
+      {:error, reason} ->
+        {:error, reason}
+    end
   end
 
   def join("rooms:" <> _private_room_id, _params, _socket) do

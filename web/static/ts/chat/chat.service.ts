@@ -1,5 +1,7 @@
 import {Injectable} from 'angular2/core';
 
+import {AuthService} from '../auth/auth.service';
+
 const socket = require('../../js/socket').default;
 
 export interface ChatMessage {
@@ -12,17 +14,17 @@ export class ChatService {
 
   private channel: any;
 
-  public constructor() {
+  public constructor(private authService: AuthService) {
     this.dataStore = {messages: []};
   }
 
   public initConnection() {
     socket.connect();
 
-    this.channel = socket.channel('rooms:lobby', {});
+    this.channel = socket.channel('rooms:lobby', {jwt: this.authService.authorizationToken()});
 
     this.channel.join()
-      .receive('error', () => { this.onErrorHandler(); });
+      .receive('error', response => { this.onErrorHandler(response); });
 
     this.channel.on('new_user', () => { this.onJoinHandler(); });
     this.channel.on('new_message', (response: any) => this.onNewMessageHandler(response.body));
@@ -36,10 +38,17 @@ export class ChatService {
     this.onNewMessageHandler("Someone just joined. Let's say hi!");
   }
 
-  private onErrorHandler() {
-    this.onNewMessageHandler(
-      'Ooops, something went wrong. You might want to refresh the page.'
-    );
+  private onErrorHandler(response) {
+    switch (response) {
+      case 'no_token':
+        this.authService.unauthorized();
+        break;
+      default:
+        console.warn(response);
+        this.onNewMessageHandler(
+          'Ooops, something went wrong. You might want to refresh the page.'
+        );
+    }
   }
 
   private onNewMessageHandler(newMessage: string) {

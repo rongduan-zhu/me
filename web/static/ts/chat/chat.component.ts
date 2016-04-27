@@ -1,10 +1,12 @@
 import {Component, OnInit} from 'angular2/core';
 
 import {ChatService} from './chat.service';
+import {AuthService} from '../auth/auth.service';
+import {HTTP_SERVICE_PROVIDERS} from '../http.service.providers';
 
 @Component({
   selector: 'chat-app',
-  providers: [ChatService],
+  providers: [AuthService, ChatService, HTTP_SERVICE_PROVIDERS],
   template: require('!!raw!../../template/chat/chat.ng2.html')
 })
 export class ChatComponent implements OnInit {
