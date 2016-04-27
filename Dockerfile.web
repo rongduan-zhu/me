@@ -8,6 +8,11 @@ RUN apk --update --no-cache add build-base elixir@edge erlang-crypto \
     postgresql-client
 
 ARG mix_env=prod
+ARG phoenix_secret=not_set
+ARG tls_key_path=not_set
+ARG tls_cert_path=not_set
+ARG fb_app_id=not_set
+ARG fb_secret=not_set
 
 ENV MIX_ENV=$mix_env
 ENV PHOENIX_SECRET=$phoenix_secret
