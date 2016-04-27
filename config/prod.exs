@@ -15,6 +15,7 @@ config :me, Me.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "www.rongduan-zhu.com"],
   cache_static_manifest: "priv/static/manifest.json",
+  force_ssl: [port: 443],
   https: [
     port: 443,
     otp_app: :me,
