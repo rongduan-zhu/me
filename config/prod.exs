@@ -13,8 +13,14 @@ use Mix.Config
 # which you typically run after static files are built.
 config :me, Me.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "www.rongduan-zhu.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "www.rongduan-zhu.com"],
+  cache_static_manifest: "priv/static/manifest.json",
+  https: [
+    port: 443,
+    otp_app: :me,
+    keyfile: System.get_env("TLS_KEY_PATH"),
+    certfile: System.get_env("TLS_CERT_PATH")
+  ]
 
 config :me, Me.Repo,
   adapter: Ecto.Adapters.Postgres,

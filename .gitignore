@@ -17,6 +17,10 @@
 /priv/static/manifest.json
 /priv/static/robots.txt.gz
 /priv/static/robots-*
+/priv/static/.well-known
+!/priv/static/.well-known/.keep
+/priv/cert
+!priv/cert/.keep
 
 /config/oauth
 !/config/oauth/.keep

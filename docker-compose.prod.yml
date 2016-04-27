@@ -11,6 +11,9 @@ services:
       DB_HOST: "db"
       DB_USERNAME: $DB_USERNAME
       DB_PASSWORD: $DB_PASSWORD
+    ports:
+      - "80:4000"
+      - "443:443"
     restart: always
   assets:
     environment:
