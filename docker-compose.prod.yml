@@ -24,9 +24,6 @@ services:
       FB_SECRET: $FB_SECRET
     ports:
       - "443:443"
-    volumes:
-      - /etc/letsencrypt/live:/etc/letsencrypt/live
-      - /etc/letsencrypt/archive:/etc/letsencrypt/archive
     restart: always
   assets:
     environment:
