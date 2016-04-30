@@ -1,1 +1,3 @@
-<ng2-app></ng2-app>
+<ng2-app>
+</ng2-app>
+<%= me_data("facebookId", facebook_id) %>

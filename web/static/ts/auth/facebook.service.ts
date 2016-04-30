@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 
 import {AuthService} from './auth.service';
+import {StorageService} from '../storage.service';
 
 interface Window {
   fbAsyncInit?: any;
@@ -20,10 +21,21 @@ export class FacebookService {
 
   public user: OAuthUser;
 
-  public constructor(private authService: AuthService, private window: Window) {
+  public constructor(
+      private authService: AuthService,
+      private storage: StorageService,
+      private window: Window
+  ) {
+    let facebookId = this.storage.get('facebookId');
+
+    if (!facebookId) {
+      console.warn('No Facebook ID defined.');
+      return;
+    }
+
     window.fbAsyncInit = () => {
       window.FB.init({
-        appId: '1021824831234075',
+        appId: facebookId,
         status: true,
         cookie: true,
         xfbml: true,
