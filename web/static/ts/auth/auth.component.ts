@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 import {FacebookService} from './facebook.service';
 import {AuthService} from './auth.service';

@@ -1,5 +1,5 @@
-import {provide} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {provide} from '@angular/core';
+import {HTTP_PROVIDERS} from '@angular/http';
 
 import {HttpService} from './http.service';
 import {StorageService} from './storage.service';

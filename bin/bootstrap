@@ -3,18 +3,18 @@
 source ./bin/setup
 
 docker create \
-    --volume /var/lib/pgsql/data \
+    --volume /var/lib/postgresql/data \
     --name=me_data \
     busybox
 
 ./bin/rebuild
 
 dc up -d db
-dc stop
 
-dc up -d
+./bin/wait_for_db
+
 dc run --rm web mix ecto.create
 dc run --rm web mix phoenix.digest
 
 dc stop
-dc rm -fv
+dc rm -f

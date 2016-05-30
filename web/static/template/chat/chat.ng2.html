@@ -1,5 +1,5 @@
 <div class="messages">
-  <div *ngFor="#message of dataStore.messages">
+  <div *ngFor="let message of dataStore.messages">
     [{{message.date | date:'medium'}}]: {{message.body}}
   </div>
 </div>

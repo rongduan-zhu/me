@@ -1,0 +1,10 @@
+#!/bin/sh
+
+source ./bin/setup
+
+until docker exec app_db psql -U "postgres" -c '\l'; do
+    echo "Waiting for db to boot"
+    sleep 1
+done
+
+echo "db is ready"

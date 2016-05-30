@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {Router} from 'angular2/router';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   public unauthorized() {
-    this.router.navigate(['Login']);
+    this.router.navigate(['/login']);
   }
 
   public authorizationToken() {
@@ -35,7 +35,7 @@ export class AuthService {
     let payload = JSON.parse(response._body);
     this.storage.put('jwt', payload.jwt);
 
-    this.router.navigate(['Chat']);
+    this.router.navigate(['/']);
 
     return response;
   }

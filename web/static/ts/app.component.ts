@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
 
 import {ChatComponent} from './chat/chat.component';
 import {AuthComponent} from './auth/auth.component';
@@ -10,8 +10,14 @@ import {DataLoaderDirective} from './utils/data-loader.directive';
   directives: [ROUTER_DIRECTIVES, DataLoaderDirective],
   template: require('!!raw!../template/main.ng2.html')
 })
-@RouteConfig([
-  {path: '/', name: 'Chat', component: ChatComponent},
-  {path: '/login', name: 'Login', component: AuthComponent}
+@Routes([
+  {path: '/', component: ChatComponent},
+  {path: '/login', component: AuthComponent}
 ])
-export class AppComponent { }
+export class AppComponent implements OnInit {
+  public constructor(private router: Router) {}
+
+  public ngOnInit() {
+    this.router.navigate(['/']);
+  }
+}
