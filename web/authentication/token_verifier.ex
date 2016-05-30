@@ -27,7 +27,7 @@ defmodule Me.TokenVerifier do
           password: :crypto.strong_rand_bytes(32) |> Base.encode64
         }
       )
-      |> Repo.insert
+      |> Repo.insert!
       |> Guardian.encode_and_sign(:api)
     else
       user |> Guardian.encode_and_sign(:api)
